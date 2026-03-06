@@ -1,68 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Gbox360 Design System - CSS Custom Properties */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Primary Green - used for CTAs and active states */
+  --primary: 47 111 99;
+  --primary-foreground: 255 255 255;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Secondary Teal/Gray-Teal */
+  --secondary: 43 98 80;
+  --secondary-foreground: 255 255 255;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  /* Accent Orange - floating card CTA */
+  --accent: 224 122 76;
+  --accent-foreground: 255 255 255;
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+  /* Accent Brown - card backdrop */
+  --accent-brown: 59 43 30;
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+  /* Backgrounds */
+  --background: 243 239 230; /* Hero Beige */
+  --foreground: 31 31 31; /* Text Dark */
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+  /* Card */
+  --card: 255 255 255;
+  --card-foreground: 31 31 31;
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  /* Muted */
+  --muted: 243 239 230;
+  --muted-foreground: 85 85 85; /* Body Text Gray */
+
+  /* Page Background Taupe */
+  --page-bg: 167 158 150;
+
+  /* Borders & Input */
+  --border: 214 211 209;
+  --input: 214 211 209;
+  --ring: 47 111 99;
+
+  /* Semantic */
+  --destructive: 220 38 38;
+  --success: 34 197 94;
+  --warning: 234 179 8;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer base {
+  * {
+    @apply border-border;
   }
-  a:hover {
-    color: #747bff;
+
+  html {
+    @apply scroll-smooth;
   }
-  button {
-    background-color: #f9f9f9;
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
